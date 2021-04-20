@@ -1,0 +1,32 @@
+/**
+ * index页面
+ */
+.index-top{
+	background-color: green;
+	position: fixed; width: 100%; height: 60px; display: flex;
+}
+.index-top-left {
+	flex:1; 
+}
+.index-top-left div {
+	font-size: 20px;
+	margin-top: 15px;margin-left: 90px;letter-spacing: 10px;color: white;
+}
+.index-top-right {
+	flex:1; 
+	text-align: right;padding-top: 15px;float: right;margin-right: 200px;color: white;
+}
+.index-yhm{
+	font-size: 16px;
+	float: right;margin-left: 10px;padding-top: 5px;
+}
+.index-yhm a {
+	font-size: 15px;
+	float: right;padding-left: 15px;margin-top: -2px;color: white;
+}
+.index-left{
+	position: fixed; width: 15%; top: 60px; left: 0; height: 100%;
+}
+.index-right{
+	position: fixed; width: 85%; top: 60px; left: 15%; height: 100%;
+}

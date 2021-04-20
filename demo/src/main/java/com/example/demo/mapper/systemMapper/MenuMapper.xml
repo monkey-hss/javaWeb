@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.systemMapper.MenuMapper">
+	<resultMap type="com.example.demo.pojo.systemPojo.MenuInfo" id="menuMap"></resultMap>
+	
+	<!-- 新增菜单 -->
+	<insert id="addMenu" parameterType="com.example.demo.pojo.systemPojo.MenuInfo">
+		insert into demo_menu 
+			(muuid,menuName,menuType,menuLevel,menuUrl,menuOrder,isDelete,
+			menuParentId,menuParentName,createDate,createBody,updateDate)
+		values
+			(#{muuid},#{menuName},#{menuType},#{menuLevel},#{menuUrl},#{menuOrder},
+			#{isDelete},#{menuParentId},#{menuParentName},#{createDate},#{createBody},#{updateDate})
+	</insert>
+	
+	<!-- 根据菜单名称查询父菜单muuid -->
+	<select id="getMenuByParentName" parameterType="string" resultMap="menuMap">
+		select muuid from demo_menu where menuName = #{menuParentName}
+	</select>
+	
+	<!-- 校验菜单名称是否重复 -->
+	<select id="checkMenuName" parameterType="string" resultMap="menuMap">
+		select muuid from demo_menu where menuName = #{menuName}
+	</select>
+</mapper>

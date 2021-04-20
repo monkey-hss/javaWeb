@@ -1,0 +1,29 @@
+spring:
+  #配置mvc
+  mvc:
+   view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+      date-format: yyyy-MM-dd
+  #配置数据源
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/testSpr?useSSL=false&characterEncoding=utf8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+   
+  #持久层mp配置
+  mybatis-plus:
+    mapper-locations:classpath:mapper/*mapper.xml
+  global-config:
+    id-type: 3
+    field-strategy: 2
+    db-column-underline: true
+    refresh-mapper: true
+    logic-delete-value: 1
+    logic-not-delete-value: 0
+    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    jdbc-type-for-null: null

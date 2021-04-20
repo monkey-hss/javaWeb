@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.systemMapper.UserMapper">
+	<resultMap type="com.example.demo.pojo.systemPojo.UserInfo" id="userMap"></resultMap>
+	
+	<!-- 校验用户名 -->
+	<select id="checkUserName" parameterType="string" resultMap="userMap">
+		select uid from demo_user where userName = #{userName} 
+	</select>
+	
+	<!-- 新增用户 -->
+	<insert id="addUser" parameterType="com.example.demo.pojo.systemPojo.UserInfo">
+		insert into demo_user 
+			(uid,userName,password,name,age,sex,status,createDate,createBody,updateDate)
+		values
+			(#{uid},#{userName},#{password},#{name},#{age},#{sex},
+			#{status},#{createDate},#{createBody},#{updateDate})
+	</insert>
+	
+	<!-- 用户登录查询 -->
+	<select id="login" parameterType="string" resultMap="userMap">
+		select uid from demo_user
+		where userName = #{userName} and password = #{password}
+	</select>
+</mapper>
